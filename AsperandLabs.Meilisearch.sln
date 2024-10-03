@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsperandLabs.Meilisearch.TestConsole", "AsperandLabs.Meilisearch.TestConsole\AsperandLabs.Meilisearch.TestConsole.csproj", "{C21A321C-6572-491D-A3AB-459EB0B1BD1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsperandLabs.Meilisearch.Http", "AsperandLabs.Meilisearch.Http\AsperandLabs.Meilisearch.Http.csproj", "{53ADF89F-3F72-4FCF-A47E-295CFC6996B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsperandLabs.Meilisearch.Domain", "AsperandLabs.Meilisearch.Domain\AsperandLabs.Meilisearch.Domain.csproj", "{A4C91DEF-1E6D-49F9-A4F0-40766EA8EC5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsperandLabs.Meilisearch.Client", "AsperandLabs.Meilisearch.Client\AsperandLabs.Meilisearch.Client.csproj", "{DC96F329-F626-41F2-9DF6-9886D6EBF9F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsperandLabs.Meiliseach.ThinClient", "AsperandLabs.Meiliseach.ThinClient\AsperandLabs.Meiliseach.ThinClient.csproj", "{0C5AA6FD-0437-4C3B-B681-46B77FCD5280}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C21A321C-6572-491D-A3AB-459EB0B1BD1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C21A321C-6572-491D-A3AB-459EB0B1BD1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C21A321C-6572-491D-A3AB-459EB0B1BD1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C21A321C-6572-491D-A3AB-459EB0B1BD1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53ADF89F-3F72-4FCF-A47E-295CFC6996B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53ADF89F-3F72-4FCF-A47E-295CFC6996B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53ADF89F-3F72-4FCF-A47E-295CFC6996B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53ADF89F-3F72-4FCF-A47E-295CFC6996B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4C91DEF-1E6D-49F9-A4F0-40766EA8EC5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4C91DEF-1E6D-49F9-A4F0-40766EA8EC5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4C91DEF-1E6D-49F9-A4F0-40766EA8EC5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4C91DEF-1E6D-49F9-A4F0-40766EA8EC5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC96F329-F626-41F2-9DF6-9886D6EBF9F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC96F329-F626-41F2-9DF6-9886D6EBF9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC96F329-F626-41F2-9DF6-9886D6EBF9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC96F329-F626-41F2-9DF6-9886D6EBF9F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C5AA6FD-0437-4C3B-B681-46B77FCD5280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C5AA6FD-0437-4C3B-B681-46B77FCD5280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C5AA6FD-0437-4C3B-B681-46B77FCD5280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C5AA6FD-0437-4C3B-B681-46B77FCD5280}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
