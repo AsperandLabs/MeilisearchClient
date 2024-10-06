@@ -1,5 +1,7 @@
 using System.Net;
 using System.Text.Json;
+using System.Text.Json.Serialization;
+using AsperandLabs.Meilisearch.Http.Converters;
 
 namespace AsperandLabs.Meilisearch.Http.Helpers;
 
@@ -22,8 +24,17 @@ public class HttpResponseWrapper<T>
         };
 
         if (response.IsSuccessStatusCode)
-            wrapper.Result = JsonSerializer.Deserialize<T>(body);
-        
+        {
+            wrapper.Result = JsonSerializer.Deserialize<T>(body, new JsonSerializerOptions
+            {
+                Converters =
+                {
+                    new JsonStringEnumConverter(JsonNamingPolicy.CamelCase),
+                    new Iso8601DurationConverter()
+                }
+            });
+        }
+
         return wrapper;
     }
 }

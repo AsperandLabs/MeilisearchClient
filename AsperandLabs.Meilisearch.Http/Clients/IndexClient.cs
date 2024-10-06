@@ -8,41 +8,41 @@ public static class IndexClient
 {
     public static Task<HttpResponseWrapper<MeilisearchIndex>> Get(HttpClient client, string indexName, CancellationToken token = default)
     {
-        var response = client.GetAsync($"/indexes/{indexName}");
+        var response = client.GetAsync($"/indexes/{indexName}", token);
         return HttpResponseWrapper<MeilisearchIndex>.FromResponse(response, token);
     }
 
     public static Task<HttpResponseWrapper<GetAllIndexesResponse>> GetAll(HttpClient client, int? offset = null, int? limit = null, CancellationToken token = default)
     {
         var queryString = QueryStringHelpers.Create(new() { ["offset"] = offset, ["limit"] = limit });
-        var response = client.GetAsync("/indexes" + queryString);
+        var response = client.GetAsync("/indexes" + queryString, token);
         return HttpResponseWrapper<GetAllIndexesResponse>.FromResponse(response, token);
     }
 
     public static Task<HttpResponseWrapper<MeilisearchTask>> Create(HttpClient client, string indexId, string primaryKey, CancellationToken token = default)
     {
-        var response = client.PostAsync("/indexes", JsonContent.Create(new { primaryKey, uid = indexId }));
+        var response = client.PostAsJsonAsync("/indexes", new { primaryKey, uid = indexId }, token);
         return HttpResponseWrapper<MeilisearchTask>.FromResponse(response, token);
     }
 
     public static Task<HttpResponseWrapper<MeilisearchTask>> UpdatePrimaryKey(HttpClient client, string indexId, string primaryKey, CancellationToken token = default)
     {
-        var response = client.PatchAsync($"/indexes/{indexId}", JsonContent.Create(new { primaryKey }));
+        var response = client.PatchAsJsonAsync($"/indexes/{indexId}", new { primaryKey }, token);
         return HttpResponseWrapper<MeilisearchTask>.FromResponse(response, token);
     }
 
     public static Task<HttpResponseWrapper<MeilisearchTask>> Delete(HttpClient client, string indexId, CancellationToken token = default)
     {
-        var response = client.DeleteAsync($"/indexes/{indexId}");
+        var response = client.DeleteAsync($"/indexes/{indexId}", token);
         return HttpResponseWrapper<MeilisearchTask>.FromResponse(response, token);
     }
 
     public static Task<HttpResponseWrapper<MeilisearchTask>> SwapIndex(HttpClient client, string firstIndexId, string secondIndexId, CancellationToken token = default)
     {
-        var response = client.PostAsync("/swap-indexes", JsonContent.Create(new List<string>
+        var response = client.PostAsJsonAsync("/swap-indexes", new List<string>
         {
             firstIndexId, secondIndexId
-        }));
+        }, token);
         return HttpResponseWrapper<MeilisearchTask>.FromResponse(response, token);
     }
 }

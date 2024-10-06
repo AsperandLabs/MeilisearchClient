@@ -1,3 +1,4 @@
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using AsperandLabs.Meilisearch.Http.Enums;
 
@@ -9,7 +10,7 @@ public class MeilisearchTask
     public int Id { get; set; }
 
     [JsonPropertyName("indexUid")]
-    public string IndexId { get; set; }
+    public string? IndexId { get; set; }
 
     [JsonPropertyName("status")]
     public MeilisearchTaskStatus Status { get; set; }
@@ -17,6 +18,24 @@ public class MeilisearchTask
     [JsonPropertyName("type")]
     public MeilisearchTaskType Type { get; set; }
 
+    [JsonPropertyName("canceledBy")]
+    public string? CanceledBy { get; set; }
+
+    [JsonPropertyName("details")]
+    internal JsonNode? Details { get; set; }
+
+    [JsonPropertyName("error")]
+    public MeilisearchTaskError? Error { get; set; }
+
+    [JsonPropertyName("duration")]
+    public TimeSpan? ProcessingTime { get; set; }
+
     [JsonPropertyName("enqueuedAt")]
-    public DateTime EnqueueDateTime { get; set; }
+    public DateTime EnqueuedAt { get; set; }
+
+    [JsonPropertyName("startedAt")]
+    public DateTime? StartedAt { get; set; }
+
+    [JsonPropertyName("finishedAt")]
+    public DateTime? FinishedAt { get; set; }
 }
