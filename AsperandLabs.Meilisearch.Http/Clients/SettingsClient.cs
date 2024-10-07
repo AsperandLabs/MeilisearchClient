@@ -341,23 +341,14 @@ public class SettingsClient
     
     
     //Typo tolerance
-    public static Task<HttpResponseWrapper<TypoToleranceSettings>> GetTypoTolerance(HttpClient client, string indexName, CancellationToken token = default)
-    {
-        var response = client.GetAsync($"/indexes/{indexName}/settings/typo-tolerance", token);
-        return HttpResponseWrapper<TypoToleranceSettings>.FromResponse(response, token);
-    }
+    public static Task<HttpResponseWrapper<TypoToleranceSettings>> GetTypoTolerance(HttpClient client, string indexName, CancellationToken token = default) =>
+        client.GetResponseAsync<TypoToleranceSettings>($"/indexes/{indexName}/settings/typo-tolerance", token);
     
-    public static Task<HttpResponseWrapper<MeilisearchTask>> UpdateTypoTolerance(HttpClient client, string indexName, TypoToleranceSettings settings, CancellationToken token = default)
-    {
-        var response = client.PatchAsJsonAsync($"/indexes/{indexName}/settings/typo-tolerance", settings, token);
-        return HttpResponseWrapper<MeilisearchTask>.FromResponse(response, token);
-    }
+    public static Task<HttpResponseWrapper<MeilisearchTask>> UpdateTypoTolerance(HttpClient client, string indexName, TypoToleranceSettings settings, CancellationToken token = default) =>
+        client.PatchResponseAsync<MeilisearchTask, TypoToleranceSettings>($"/indexes/{indexName}/settings/typo-tolerance", settings, token);
     
-    public static Task<HttpResponseWrapper<MeilisearchTask>> ResetTypoTolerance(HttpClient client, string indexName, CancellationToken token = default)
-    {
-        var response = client.DeleteAsync($"/indexes/{indexName}/settings/typo-tolerance", token);
-        return HttpResponseWrapper<MeilisearchTask>.FromResponse(response, token);
-    }
+    public static Task<HttpResponseWrapper<MeilisearchTask>> ResetTypoTolerance(HttpClient client, string indexName, CancellationToken token = default) =>
+        client.DeleteResponseAsync<MeilisearchTask>($"/indexes/{indexName}/settings/typo-tolerance", token);
     
     
     //Embedders
