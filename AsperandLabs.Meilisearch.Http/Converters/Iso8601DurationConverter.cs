@@ -8,7 +8,7 @@ public class Iso8601DurationConverter : JsonConverter<TimeSpan>
 {
     public override TimeSpan Read(ref Utf8JsonReader reader, Type type, JsonSerializerOptions options)
     {
-        return XmlConvert.ToTimeSpan(reader.GetString());
+        return XmlConvert.ToTimeSpan(reader.GetString()!);
     }
 
     public override void Write(Utf8JsonWriter writer, TimeSpan value, JsonSerializerOptions options)

@@ -1,3 +1,3 @@
-namespace AsperandLabs.Meilisearch.Domain.Attributes;
+namespace AsperandLabs.Meilisearch.Client.Attributes;
 
 public class FilterAttribute : Attribute;

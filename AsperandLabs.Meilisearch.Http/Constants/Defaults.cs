@@ -1,4 +1,4 @@
-namespace AsperandLabs.Meilisearch.Http.Clients.Constants;
+namespace AsperandLabs.Meilisearch.Http.Constants;
 
 public static class Defaults
 {

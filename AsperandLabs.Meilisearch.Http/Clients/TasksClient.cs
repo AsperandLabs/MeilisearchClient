@@ -1,5 +1,4 @@
 using System.Net.Http.Json;
-using AsperandLabs.Meilisearch.Http.Enums;
 using AsperandLabs.Meilisearch.Http.Helpers;
 using AsperandLabs.Meilisearch.Http.Responses;
 
@@ -28,22 +27,18 @@ public static class TasksClient
             ["afterFinishedAt"] = afterFinishedAt
         });
         
-        var response = client.GetAsync("/tasks" + queryString, token);
-        return HttpResponseWrapper<MeilisearchPage<MeilisearchTask>>.FromResponse(response, token);
+        return client.GetResponseAsync<MeilisearchPage<MeilisearchTask>>("/tasks" + queryString, token);
     }
     
-    public static Task<HttpResponseWrapper<MeilisearchTask>> Get(HttpClient client, int taskId, CancellationToken token = default)
-    {    
-        var response = client.GetAsync($"/tasks/{taskId}", token);
-        return HttpResponseWrapper<MeilisearchTask>.FromResponse(response, token);
-    }
+    public static Task<HttpResponseWrapper<MeilisearchTask>> Get(HttpClient client, int taskId, CancellationToken token = default) =>
+        client.GetResponseAsync<MeilisearchTask>($"/tasks/{taskId}", token);
     
     public static Task<HttpResponseWrapper<MeilisearchTask>> Cancel(HttpClient client, string[]? taskIds = null,
         string[]? statuses = null, string[]? types = null, string[]? indexIds = null, DateTime[]? beforeEnqueuedAt = null,
         DateTime[]? beforeStartedAt = null, DateTime[]? afterEnqueuedAt = null, DateTime[]? afterStartedAt = null,
         CancellationToken token = default)
     {    
-        var response = client.PostAsJsonAsync($"/tasks/cancel", new
+        var response = client.PostAsJsonAsync("/tasks/cancel", new
         {
             uids = taskIds,
             statuses,
@@ -62,7 +57,7 @@ public static class TasksClient
         DateTime[]? beforeStartedAt = null, DateTime[]? afterEnqueuedAt = null, DateTime[]? beforeFinishedAt = null, DateTime[]? afterFinishedAt = null,
         DateTime[]? afterStartedAt = null, CancellationToken token = default)
     {    
-        var response = client.PostAsJsonAsync($"/tasks/cancel", new
+        var response = client.PostAsJsonAsync("/tasks/cancel", new
         {
             uids = taskIds,
             statuses,

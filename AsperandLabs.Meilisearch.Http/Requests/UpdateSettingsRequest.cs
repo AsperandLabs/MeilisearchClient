@@ -1,4 +1,4 @@
-using AsperandLabs.Meilisearch.Http.Clients.Constants;
+using AsperandLabs.Meilisearch.Http.Constants;
 using AsperandLabs.Meilisearch.Http.Shared;
 
 namespace AsperandLabs.Meilisearch.Http.Requests;

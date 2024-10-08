@@ -6,17 +6,13 @@ namespace AsperandLabs.Meilisearch.Http.Clients;
 
 public static class IndexClient
 {
-    public static Task<HttpResponseWrapper<MeilisearchIndex>> Get(HttpClient client, string indexName, CancellationToken token = default)
-    {
-        var response = client.GetAsync($"/indexes/{indexName}", token);
-        return HttpResponseWrapper<MeilisearchIndex>.FromResponse(response, token);
-    }
+    public static Task<HttpResponseWrapper<MeilisearchIndex>> Get(HttpClient client, string indexName, CancellationToken token = default) =>
+        client.GetResponseAsync<MeilisearchIndex>($"/indexes/{indexName}", token);
 
     public static Task<HttpResponseWrapper<GetAllIndexesResponse>> GetAll(HttpClient client, int? offset = null, int? limit = null, CancellationToken token = default)
     {
         var queryString = QueryStringHelpers.Create(new() { ["offset"] = offset, ["limit"] = limit });
-        var response = client.GetAsync("/indexes" + queryString, token);
-        return HttpResponseWrapper<GetAllIndexesResponse>.FromResponse(response, token);
+        return client.GetResponseAsync<GetAllIndexesResponse>("/indexes" + queryString, token);
     }
 
     public static Task<HttpResponseWrapper<MeilisearchTask>> Create(HttpClient client, string indexId, string primaryKey, CancellationToken token = default)
@@ -31,18 +27,12 @@ public static class IndexClient
         return HttpResponseWrapper<MeilisearchTask>.FromResponse(response, token);
     }
 
-    public static Task<HttpResponseWrapper<MeilisearchTask>> Delete(HttpClient client, string indexId, CancellationToken token = default)
-    {
-        var response = client.DeleteAsync($"/indexes/{indexId}", token);
-        return HttpResponseWrapper<MeilisearchTask>.FromResponse(response, token);
-    }
+    public static Task<HttpResponseWrapper<MeilisearchTask>> Delete(HttpClient client, string indexId, CancellationToken token = default) =>
+        client.DeleteResponseAsync<MeilisearchTask>($"/indexes/{indexId}", token);
 
-    public static Task<HttpResponseWrapper<MeilisearchTask>> SwapIndex(HttpClient client, string firstIndexId, string secondIndexId, CancellationToken token = default)
-    {
-        var response = client.PostAsJsonAsync("/swap-indexes", new List<string>
+    public static Task<HttpResponseWrapper<MeilisearchTask>> SwapIndex(HttpClient client, string firstIndexId, string secondIndexId, CancellationToken token = default) =>
+        client.PostResponseAsync<MeilisearchTask, List<string>>("/swap-indexes", new List<string>
         {
             firstIndexId, secondIndexId
         }, token);
-        return HttpResponseWrapper<MeilisearchTask>.FromResponse(response, token);
-    }
 }
