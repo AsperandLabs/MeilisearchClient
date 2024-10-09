@@ -25,7 +25,7 @@ public class MeilisearchTask
     internal JsonNode? Details { get; set; }
 
     [JsonPropertyName("error")]
-    public MeilisearchTaskError? Error { get; set; }
+    public MeilisearchError? Error { get; set; }
 
     [JsonPropertyName("duration")]
     public TimeSpan? ProcessingTime { get; set; }

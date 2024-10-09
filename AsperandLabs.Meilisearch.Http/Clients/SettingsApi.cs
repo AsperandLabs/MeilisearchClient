@@ -5,7 +5,7 @@ using AsperandLabs.Meilisearch.Http.Shared;
 
 namespace AsperandLabs.Meilisearch.Http.Clients;
 
-public class SettingsClient
+public class SettingsApi
 {
     public static Task<HttpResponseWrapper<MeilisearchTask>> UpdateAll(HttpClient client, string indexName, UpdateSettingsRequest request, CancellationToken token = default) =>
         client.PatchResponseAsync<MeilisearchTask, UpdateSettingsRequest>($"/indexes/{indexName}/settings", request, token);

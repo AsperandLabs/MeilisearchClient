@@ -4,7 +4,7 @@ using AsperandLabs.Meilisearch.Http.Responses;
 
 namespace AsperandLabs.Meilisearch.Http.Clients;
 
-public static class IndexClient
+public static class IndexApi
 {
     public static Task<HttpResponseWrapper<MeilisearchIndex>> Get(HttpClient client, string indexName, CancellationToken token = default) =>
         client.GetResponseAsync<MeilisearchIndex>($"/indexes/{indexName}", token);

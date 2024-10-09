@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace AsperandLabs.Meilisearch.Http.Responses;
 
-public class MeilisearchTaskError
+public class MeilisearchError
 {
     [JsonPropertyName("message")]
     public string Message { get; set; }

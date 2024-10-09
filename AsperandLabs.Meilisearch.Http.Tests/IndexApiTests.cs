@@ -5,14 +5,14 @@ using AsperandLabs.Meilisearch.Http.Helpers;
 namespace AsperandLabs.Meilisearch.Http.Tests;
 
 [TestClass]
-public class IndexClientTests
+public class IndexApiTests
 {
     private readonly HttpClient _client = HttpClients.ValidLocalHttpClient();
     
     [TestMethod]
     public async Task CreateAndDeleteIndex()
     {
-        var createTask = await  IndexClient.Create(_client, "CreateDeleteIndexTest", "primaryKey");
+        var createTask = await  IndexApi.Create(_client, "CreateDeleteIndexTest", "primaryKey");
         
         Assert.IsNotNull(createTask);
         Assert.IsTrue(createTask.WasSuccessful);
@@ -24,7 +24,7 @@ public class IndexClientTests
         Assert.IsNotNull(finalTask.Result);
         Assert.AreEqual(finalTask.Result.Status, MeilisearchTaskStatus.Succeeded);
         
-        var deleteTask = await IndexClient.Delete(_client, "CreateDeleteIndexTest");
+        var deleteTask = await IndexApi.Delete(_client, "CreateDeleteIndexTest");
         
         Assert.IsNotNull(deleteTask);
         Assert.IsTrue(deleteTask.WasSuccessful);
@@ -41,7 +41,7 @@ public class IndexClientTests
     [TestMethod]
     public async Task DeleteNonExistentIndex()
     {
-        var deleteTask = await IndexClient.Delete(_client, "NotRealIndex");
+        var deleteTask = await IndexApi.Delete(_client, "NotRealIndex");
         
         Assert.IsNotNull(deleteTask);
         Assert.IsTrue(deleteTask.WasSuccessful);
@@ -54,5 +54,18 @@ public class IndexClientTests
         Assert.AreEqual(finalDeleteTask.Result.Status, MeilisearchTaskStatus.Failed);
         Assert.IsNotNull(finalDeleteTask.Result.Error);
         Assert.AreEqual(finalDeleteTask.Result.Error.Code, "index_not_found");
+    }
+    
+    
+    
+    [TestMethod]
+    public async Task GetNonExistentIndex()
+    {
+        var getResponse = await IndexApi.Get(_client, "NotRealIndex");
+        
+        Assert.IsNotNull(getResponse);
+        Assert.IsFalse(getResponse.WasSuccessful);
+        Assert.IsNotNull(getResponse.Error);
+        Assert.AreEqual(getResponse.Error.Code, "index_not_found");
     }
 }

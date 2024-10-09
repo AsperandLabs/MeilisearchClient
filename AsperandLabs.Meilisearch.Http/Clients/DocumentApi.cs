@@ -5,7 +5,7 @@ using AsperandLabs.Meilisearch.Http.Responses;
 
 namespace AsperandLabs.Meilisearch.Http.Clients;
 
-public static class DocumentClient
+public static class DocumentApi
 {   
     public static Task<HttpResponseWrapper<GetDocumentsResponse<T>>> Get<T>(HttpClient client, string indexName, GetDocumentsRequest request, CancellationToken token = default) => 
         client.PostResponseAsync<GetDocumentsResponse<T>, GetDocumentsRequest>($"/indexes/{indexName}/documents/fetch", request, token);

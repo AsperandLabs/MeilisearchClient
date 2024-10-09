@@ -4,7 +4,7 @@ using AsperandLabs.Meilisearch.Http.Responses;
 
 namespace AsperandLabs.Meilisearch.Http.Clients;
 
-public static class TasksClient
+public static class TasksApi
 {
     public static Task<HttpResponseWrapper<MeilisearchPage<MeilisearchTask>>> Get(HttpClient client, int? limit = null, string[]? taskIds = null,
         string[]? statuses = null, string[]? types = null, string[]? indexIds = null, string? canceledBy = null, DateTime[]? beforeEnqueuedAt = null,

@@ -1,6 +1,6 @@
 namespace AsperandLabs.Meilisearch.Http.Clients;
 
-public class SimilarDocumentsClient
+public class SimilarDocumentsApi
 {
     
 }

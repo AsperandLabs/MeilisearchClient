@@ -12,7 +12,7 @@ public static class MeilisearchTaskExtensions
     {
         while(true)
         {
-            var updatedTask = await TasksClient.Get(client, task.Id, token);
+            var updatedTask = await TasksApi.Get(client, task.Id, token);
             if (!updatedTask.WasSuccessful || updatedTask.Result == null)
                 return updatedTask;
 

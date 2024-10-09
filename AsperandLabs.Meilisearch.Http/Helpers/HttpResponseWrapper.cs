@@ -2,12 +2,14 @@ using System.Net;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using AsperandLabs.Meilisearch.Http.Converters;
+using AsperandLabs.Meilisearch.Http.Responses;
 
 namespace AsperandLabs.Meilisearch.Http.Helpers;
 
 public class HttpResponseWrapper<T>
 {
     public T? Result { get; set; }
+    public MeilisearchError? Error { get; set; }
     public string RawResult { get; set; }
     public HttpStatusCode StatusCode { get; set; }
     public bool WasSuccessful { get; set; }
@@ -33,6 +35,10 @@ public class HttpResponseWrapper<T>
                     new Iso8601DurationConverter()
                 }
             });
+        }
+        else
+        {
+            wrapper.Error = JsonSerializer.Deserialize<MeilisearchError>(body);
         }
 
         return wrapper;
