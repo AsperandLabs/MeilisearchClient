@@ -28,6 +28,12 @@ internal static class HttpClientHelpers
         return HttpResponseWrapper<T>.FromResponse(response, token);
     }
     
+    internal static Task<HttpResponseWrapper<T>> PostResponseAsync<T>(this HttpClient httpClient, string requestUri, CancellationToken token = default)
+    {
+        var response = httpClient.PostAsync(requestUri, null, token);
+        return HttpResponseWrapper<T>.FromResponse(response, token);
+    }
+    
     internal static Task<HttpResponseWrapper<T>> PutResponseAsync<T, TT>(this HttpClient httpClient, string requestUri, TT body, CancellationToken token = default)
     {
         var response = httpClient.PutAsJsonAsync(requestUri, body, token);

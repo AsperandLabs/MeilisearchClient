@@ -8,12 +8,22 @@ namespace AsperandLabs.Meilisearch.Http.Helpers;
 
 public class HttpResponseWrapper<T>
 {
-    public T? Result { get; set; }
-    public MeilisearchError? Error { get; set; }
-    public string RawResult { get; set; }
-    public HttpStatusCode StatusCode { get; set; }
-    public bool WasSuccessful { get; set; }
+    public T? Result { get; private set; }
+    public MeilisearchError? Error { get; private set; }
+    public string RawResult { get; init; }
+    public HttpStatusCode StatusCode { get; init; }
+    public bool WasSuccessful { get; private set; }
 
+    private static JsonSerializerOptions SerializerOptions { get; } = new()
+    {
+        Converters =
+        {
+            new JsonStringEnumConverter(JsonNamingPolicy.CamelCase),
+            new Iso8601DurationConverter(),
+            new FederatedSearchResultConverter()
+        }
+    };
+    
     public static async Task<HttpResponseWrapper<T>> FromResponse(Task<HttpResponseMessage> responseTask, CancellationToken token)
     {
         var response = await responseTask;
@@ -27,14 +37,7 @@ public class HttpResponseWrapper<T>
 
         if (response.IsSuccessStatusCode)
         {
-            wrapper.Result = JsonSerializer.Deserialize<T>(body, new JsonSerializerOptions
-            {
-                Converters =
-                {
-                    new JsonStringEnumConverter(JsonNamingPolicy.CamelCase),
-                    new Iso8601DurationConverter()
-                }
-            });
+            wrapper.Result = JsonSerializer.Deserialize<T>(body, SerializerOptions);
         }
         else
         {

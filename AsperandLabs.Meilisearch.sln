@@ -8,8 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsperandLabs.Meilisearch.Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsperandLabs.Meilisearch.Client", "AsperandLabs.Meilisearch.Client\AsperandLabs.Meilisearch.Client.csproj", "{DC96F329-F626-41F2-9DF6-9886D6EBF9F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsperandLabs.Meiliseach.ThinClient", "AsperandLabs.Meiliseach.ThinClient\AsperandLabs.Meiliseach.ThinClient.csproj", "{0C5AA6FD-0437-4C3B-B681-46B77FCD5280}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsperandLabs.Meilisearch.Http.Tests", "AsperandLabs.Meilisearch.Http.Tests\AsperandLabs.Meilisearch.Http.Tests.csproj", "{87C88E52-7349-4E2E-B232-A23E378EEF55}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{A7803880-8526-47B1-9EEF-C9DC8B654DEE}"
@@ -36,10 +34,6 @@ Global
 		{DC96F329-F626-41F2-9DF6-9886D6EBF9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC96F329-F626-41F2-9DF6-9886D6EBF9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC96F329-F626-41F2-9DF6-9886D6EBF9F0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C5AA6FD-0437-4C3B-B681-46B77FCD5280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C5AA6FD-0437-4C3B-B681-46B77FCD5280}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C5AA6FD-0437-4C3B-B681-46B77FCD5280}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C5AA6FD-0437-4C3B-B681-46B77FCD5280}.Release|Any CPU.Build.0 = Release|Any CPU
 		{87C88E52-7349-4E2E-B232-A23E378EEF55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{87C88E52-7349-4E2E-B232-A23E378EEF55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87C88E52-7349-4E2E-B232-A23E378EEF55}.Release|Any CPU.ActiveCfg = Release|Any CPU

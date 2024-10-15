@@ -6,6 +6,8 @@ public static class Defaults
 
     public static string ProximityPrecision => "byWord";
 
+    public static string DefaultEmbedder => "default";
+
     public static List<string> RankingRules =>
     [
         "words",

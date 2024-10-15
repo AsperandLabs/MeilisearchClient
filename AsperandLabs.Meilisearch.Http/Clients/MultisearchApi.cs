@@ -1,12 +1,11 @@
 using AsperandLabs.Meilisearch.Http.Helpers;
-using AsperandLabs.Meilisearch.Http.Requests;
 using AsperandLabs.Meilisearch.Http.Requests.Multisearch;
 using AsperandLabs.Meilisearch.Http.Responses;
 using AsperandLabs.Meilisearch.Http.Responses.Multisearch;
 
 namespace AsperandLabs.Meilisearch.Http.Clients;
 
-public class MultisearchApi
+public static class MultisearchApi
 {
     public static Task<HttpResponseWrapper<MultisearchResponse<T>>> Multisearch<T>(HttpClient client, List<MultiSearchRequest> request, CancellationToken token = default) => 
         client.PostResponseAsync<MultisearchResponse<T>, List<MultiSearchRequest>>("/multi-search", request, token);
