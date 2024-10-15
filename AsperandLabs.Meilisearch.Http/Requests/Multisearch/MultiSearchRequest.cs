@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace AsperandLabs.Meilisearch.Http.Requests;
+namespace AsperandLabs.Meilisearch.Http.Requests.Multisearch;
 
 public class MultiSearchRequest
 {

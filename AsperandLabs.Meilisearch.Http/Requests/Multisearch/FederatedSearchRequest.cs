@@ -1,11 +1,11 @@
 using System.Text.Json.Serialization;
 
-namespace AsperandLabs.Meilisearch.Http.Requests;
+namespace AsperandLabs.Meilisearch.Http.Requests.Multisearch;
 
 public class FederatedSearchRequest
 {
     [JsonPropertyName("federationOptions")]
-    public object FederationOptions { get; set; }
+    public FederationOptions FederationOptions { get; set; }
     
     [JsonPropertyName("indexUid")]
     public string IndexId { get; set; }
