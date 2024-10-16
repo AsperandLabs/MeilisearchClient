@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace AsperandLabs.Meilisearch.Http.Responses;
 
-public class MeilisearchPage<T>
+public class MeilisearchTaskPage<T>
 {
     [JsonPropertyName("results")]
     public List<T> Results { get; set; }
@@ -12,4 +12,10 @@ public class MeilisearchPage<T>
 
     [JsonPropertyName("limit")]
     public int Limit { get; set; }
+
+    [JsonPropertyName("from")]
+    public int From { get; set; }
+
+    [JsonPropertyName("next")]
+    public int Next { get; set; }
 }

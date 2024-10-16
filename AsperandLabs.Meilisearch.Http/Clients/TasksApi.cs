@@ -6,7 +6,7 @@ namespace AsperandLabs.Meilisearch.Http.Clients;
 
 public static class TasksApi
 {
-    public static Task<HttpResponseWrapper<MeilisearchPage<MeilisearchTask>>> Get(HttpClient client, int? limit = null, string[]? taskIds = null,
+    public static Task<HttpResponseWrapper<MeilisearchTaskPage<MeilisearchTask>>> Get(HttpClient client, int? limit = null, string[]? taskIds = null,
         string[]? statuses = null, string[]? types = null, string[]? indexIds = null, string? canceledBy = null, DateTime[]? beforeEnqueuedAt = null,
         DateTime[]? beforeStartedAt = null, DateTime[]? beforeFinishedAt = null, DateTime[]? afterEnqueuedAt = null, DateTime[]? afterStartedAt = null,
         DateTime[]? afterFinishedAt = null,CancellationToken token = default)
@@ -27,7 +27,7 @@ public static class TasksApi
             ["afterFinishedAt"] = afterFinishedAt
         });
         
-        return client.GetResponseAsync<MeilisearchPage<MeilisearchTask>>("/tasks" + queryString, token);
+        return client.GetResponseAsync<MeilisearchTaskPage<MeilisearchTask>>("/tasks" + queryString, token);
     }
     
     public static Task<HttpResponseWrapper<MeilisearchTask>> Get(HttpClient client, int taskId, CancellationToken token = default) =>
