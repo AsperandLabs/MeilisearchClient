@@ -10,4 +10,8 @@
       <PackageReference Include="System.Text.Json" Version="8.0.5" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\AsperandLabs.Meilisearch.Domain\AsperandLabs.Meilisearch.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

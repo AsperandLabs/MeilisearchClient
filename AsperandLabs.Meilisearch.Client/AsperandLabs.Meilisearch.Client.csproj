@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\AsperandLabs.Meilisearch.Domain\AsperandLabs.Meilisearch.Domain.csproj" />
+      <ProjectReference Include="..\AsperandLabs.Meilisearch.Http\AsperandLabs.Meilisearch.Http.csproj" />
+    </ItemGroup>
+
 </Project>

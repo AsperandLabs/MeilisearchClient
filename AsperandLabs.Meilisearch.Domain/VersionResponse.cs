@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace AsperandLabs.Meilisearch.Http.Responses;
+namespace AsperandLabs.Meilisearch.Domain;
 
 public class VersionResponse
 {

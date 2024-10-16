@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsperandLabs.Meilisearch.Ht
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{A7803880-8526-47B1-9EEF-C9DC8B654DEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsperandLabs.Meilisearch.Client.Tests", "AsperandLabs.Meilisearch.Client.Tests\AsperandLabs.Meilisearch.Client.Tests.csproj", "{2B880BBC-0EE9-4011-BDA6-570D6A653CDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsperandLabs.Tests.Shared", "AsperandLabs.Tests.Shared\AsperandLabs.Tests.Shared.csproj", "{EDF62928-3180-4F00-B162-1FDFA1ED7AF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,9 +42,19 @@ Global
 		{87C88E52-7349-4E2E-B232-A23E378EEF55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87C88E52-7349-4E2E-B232-A23E378EEF55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87C88E52-7349-4E2E-B232-A23E378EEF55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B880BBC-0EE9-4011-BDA6-570D6A653CDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B880BBC-0EE9-4011-BDA6-570D6A653CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B880BBC-0EE9-4011-BDA6-570D6A653CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B880BBC-0EE9-4011-BDA6-570D6A653CDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDF62928-3180-4F00-B162-1FDFA1ED7AF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF62928-3180-4F00-B162-1FDFA1ED7AF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF62928-3180-4F00-B162-1FDFA1ED7AF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF62928-3180-4F00-B162-1FDFA1ED7AF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{87C88E52-7349-4E2E-B232-A23E378EEF55} = {A7803880-8526-47B1-9EEF-C9DC8B654DEE}
 		{C21A321C-6572-491D-A3AB-459EB0B1BD1B} = {A7803880-8526-47B1-9EEF-C9DC8B654DEE}
+		{2B880BBC-0EE9-4011-BDA6-570D6A653CDC} = {A7803880-8526-47B1-9EEF-C9DC8B654DEE}
+		{EDF62928-3180-4F00-B162-1FDFA1ED7AF7} = {A7803880-8526-47B1-9EEF-C9DC8B654DEE}
 	EndGlobalSection
 EndGlobal
